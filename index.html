@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>SF TİM | Sessizce Nöbetteyiz</title>
+
+<link href="https://fonts.googleapis.com/css2?family=KoHo:wght@600&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'KoHo', sans-serif;
+  overflow: hidden;
+  color: #eaeaea;
+}
+
+/* VIDEO */
+#bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* SİYAH KATMAN */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: -2;
+}
+
+/* İÇERİK (BAŞTA GİZLİ) */
+#content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  line-height: 1.6;
+  display: none; /* BAŞTA YOK */
+}
+
+red { color: #c40000; }
+
+.signature {
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  opacity: ;
+}
+
+.text {
+  font-size: 17px;
+}
+
+.footer {
+  margin-top: 32px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+/* BUTON */
+#play-button {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+
+  padding: 14px 44px;
+  font-size: 14px;
+  letter-spacing: 3px;
+
+  color: #fff;
+  background: #000;
+  border: 1.5px solid #888;
+  border-radius: 0;
+
+  cursor: pointer;
+}
+
+#play-button:hover {
+  border-color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<video id="bg-video" preload="auto">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<div id="overlay"></div>
+
+<button id="play-button">Don't be shy, click :)</button>
+
+<div id="content">
+  <div class="signature">Hacked By <red>Razi</red></div>
+
+  <div class="text">
+        #AllEyesOnIndianMuslims
+  </div>
+
+</div>
+
+<script>
+const btn = document.getElementById("play-button");
+const video = document.getElementById("bg-video");
+const content = document.getElementById("content");
+
+btn.addEventListener("click", () => {
+  video.muted = false;
+  video.volume = 1;
+  video.play();
+
+  btn.style.display = "none";
+  content.style.display = "block";
+});
+</script>
+
+</body>
+</html>
